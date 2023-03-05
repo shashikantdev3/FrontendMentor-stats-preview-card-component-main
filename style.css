@@ -1,0 +1,223 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+/* Custom Properties */
+:root{
+    --clr-dark-blue :hsl(233, 47%, 7%);
+    --clr-dark-desaturated-blue : hsl(244, 38%, 16%);
+    --clr-soft-violet : hsl(277, 64%, 61%);
+    
+    /* neutral */
+    --clr-slightly-transparent-white-main : hsla(0, 0%, 100%, 0.75);
+    --clr-slightly-transparent-white-stat : hsla(0, 0%, 100%, 0.6);
+    --clr-white : hsl(0, 0%, 100%);
+
+    /* Font size */
+    --fs: 0.938rem;
+
+    /* Font family */
+    --ff-inter: 'Inter', sans-serif;
+    --ff-Lexed: 'Lexend Deca', sans-serif;
+}
+
+/* General Styling */
+body{
+  font-size: var(--fs);
+  background-color: var(--clr-dark-blue);
+  line-height: 1.2;
+  display: grid;
+  place-content: center;
+}
+
+
+.stats{
+    max-width: 375px;
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-rows: 1.5fr 1fr 1fr 1fr;
+}
+
+.stats__image{
+  grid-row: 1/2;
+  background-image: url(./images/image-header-mobile.jpg);
+  background-size: cover;
+  background-color: var(--clr-soft-violet);
+  background-blend-mode: darken;
+
+
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+
+.stats__artical{
+    background-color: var(--clr-dark-desaturated-blue);
+    grid-row: 2/5;
+    display: grid;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+
+}
+
+.stats__artical-title{
+   
+    padding: 1.25rem;
+    text-align: center;
+    color: var(--clr-white);
+    font-family: var(--ff-inter);
+    font-size: 2rem;
+}
+
+.insights{
+    color: var(--clr-soft-violet);
+}
+
+.stats__artical-description{
+    text-align: center;
+    color: var(--clr-slightly-transparent-white-main);
+    font-family: var(--ff-Lexed);
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.stats__count{
+    display: grid;
+    gap: 1rem;
+    padding: 2rem 1rem 1rem 1rem;
+    align-items: center;
+    justify-content: center;  
+}
+
+.stats__count-companies,
+.stats__count-template,
+.stats__count-queries{
+    text-align: center;
+    color: var(--clr-white);
+    font-family: var(--ff-inter);
+    font-size: 2rem;
+}
+
+.stats__count-type-company,
+.stats__count-type-templates,
+.stats__count-type-queries{
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--clr-slightly-transparent-white-main);
+    font-family: var(--ff-Lexed);
+    font-size: 1rem;
+}
+
+
+
+@media (min-width:600px){
+
+    .stats{
+        max-width: 1050px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+    .stats__artical{
+        grid-column: 1/2;
+        grid-row: 1;
+        align-items: start;
+        justify-content: left;
+        gap: 1rem;
+        padding: 3rem;
+        border-top-left-radius: 0.5rem;
+    }
+    .stats__image{
+      grid-row: 1/2;
+      background-image: url(./images/image-header-desktop.jpg);
+      background-size: cover;
+      background-color: var(--clr-soft-violet);
+      background-blend-mode: darken;
+    
+    
+      border-bottom-right-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+      border-top-left-radius: 0;
+    }
+
+    .stats__artical-title{
+        text-align: left;
+
+    }
+
+    .stats__artical-description{
+        text-align: left;
+        font-size: 1rem;
+        
+    padding-left: 1rem
+    }
+
+    .stats__count{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .stats__count-companies,
+    .stats__count-template,
+    .stats__count-queries{
+        text-align: left;
+        color: var(--clr-white);
+        font-family: var(--ff-inter);
+        font-size: 1.5rem;
+    }
+
+    .stats__count-type-company,
+    .stats__count-type-templates,
+    .stats__count-type-queries{
+        text-transform: uppercase;
+        text-align: left;
+        color: var(--clr-slightly-transparent-white-main);
+        font-family: var(--ff-Lexed);
+        font-size: 0.925rem;
+    }
+
+}
